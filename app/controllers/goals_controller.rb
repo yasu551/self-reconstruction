@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   def index
+    @goals = current_user.goals.default_order
   end
 
   def new

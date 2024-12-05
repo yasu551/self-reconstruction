@@ -1,5 +1,11 @@
-<div>
-  <h1 class="font-bold text-4xl">Goals#index</h1>
-  <p>Find me in app/views/goals/index.html.erb</p>
-  <button class="btn">Button</button>
+<div class="max-w-3xl mx-auto">
+  <h1 class="font-bold text-4xl mb-8">目標一覧</h1>
+  <%= link_to '新規作成', new_goal_path, class: 'btn mb-8 bg-primary' %>
+  <div class="join join-vertical gap-4">
+    <% @goals.each do |goal| %>
+      <%= link_to edit_goal_path(goal), class: 'btn text-start' do %>
+        <%= goal.content %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

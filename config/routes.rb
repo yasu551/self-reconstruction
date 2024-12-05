@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :goals, only: %i[index new create edit update destroy]
+  resources :goals, only: %i[index new create edit update]
   root "goals#index"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
