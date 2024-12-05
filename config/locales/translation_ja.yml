@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      goal: 目標
+      user: ユーザー  #g
+
+    attributes:
+      goal:
+        content: 内容
+        enabled: 有効にする?
+        memo: メモ
+        user: :activerecord.models.user  #g
+
+      user:
+        email: メールアドレス
+        encrypted_password: 暗号化パスワード  #g
+        goals: goals  #g
+        name: 名前
+        remember_created_at: ログイン記憶時刻  #g
+        reset_password_sent_at: パスワードリセット送信時刻  #g
+        reset_password_token: パスワードリセット用トークン  #g
+        password: パスワード
+        password_confirmation: パスワード（確認）
