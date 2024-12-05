@@ -58,5 +58,6 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "i18n_generators"
+  gem "devise-i18n"
 end
 
