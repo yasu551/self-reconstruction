@@ -27,5 +27,8 @@
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
+    <% if Rails.env.local? %>
+      <%= render "layouts/rails_template_inspector" %>
+    <% end %>
   </body>
 </html>
