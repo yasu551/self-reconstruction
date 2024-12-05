@@ -1,0 +1,19 @@
+<div class="navbar bg-base-100">
+  <div class="navbar-start">
+    <%= link_to 'self-reconstruction', root_path, class: 'btn btn-ghost text-xl' %>
+  </div>
+  <div class="navbar-end">
+    <ul class="menu menu-horizontal bg-base-200 rounded-box">
+      <li>
+        <%= link_to '目標一覧', goals_path %>
+      </li>
+      <li>
+        <% if user_signed_in? %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, form: { data: { turbo_confirm: 'ログアウトしますか？' }} %>
+        <% else %>
+          <%= link_to 'ログイン', new_user_session_path %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
