@@ -1,0 +1,9 @@
+<div>
+  <%= simple_form_for goal, url: goals_path do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :content %>
+    <%= f.input :memo %>
+    <%= f.input :enabled %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
