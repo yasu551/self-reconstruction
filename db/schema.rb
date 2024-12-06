@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_06_052403) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_06_072412) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -37,6 +37,39 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_06_052403) do
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
+  create_table "keep_actions", force: :cascade do |t|
+    t.bigint "kpt_board_id", null: false
+    t.string "content", null: false
+    t.text "memo", default: "", null: false
+    t.boolean "enabled", default: true, null: false
+    t.bigint "try_action_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["kpt_board_id"], name: "index_keep_actions_on_kpt_board_id"
+    t.index ["try_action_id"], name: "index_keep_actions_on_try_action_id"
+  end
+
+  create_table "kpt_boards", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "start_on", null: false
+    t.date "end_on", null: false
+    t.text "keep_action_draft", default: "", null: false
+    t.text "problem_action_draft", default: "", null: false
+    t.text "try_action_draft", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_kpt_boards_on_user_id"
+  end
+
+  create_table "problem_actions", force: :cascade do |t|
+    t.bigint "kpt_board_id", null: false
+    t.string "content", null: false
+    t.text "memo", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["kpt_board_id"], name: "index_problem_actions_on_kpt_board_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
@@ -51,6 +84,18 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_06_052403) do
     t.text "content_diff", default: "", null: false
     t.index ["deadline_on"], name: "index_tasks_on_deadline_on"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "try_actions", force: :cascade do |t|
+    t.bigint "kpt_board_id", null: false
+    t.string "content", null: false
+    t.text "memo", default: "", null: false
+    t.boolean "enabled", default: true, null: false
+    t.bigint "problem_action_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["kpt_board_id"], name: "index_try_actions_on_kpt_board_id"
+    t.index ["problem_action_id"], name: "index_try_actions_on_problem_action_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,5 +113,11 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_06_052403) do
 
   add_foreign_key "daily_reports", "users"
   add_foreign_key "goals", "users"
+  add_foreign_key "keep_actions", "kpt_boards"
+  add_foreign_key "keep_actions", "try_actions"
+  add_foreign_key "kpt_boards", "users"
+  add_foreign_key "problem_actions", "kpt_boards"
   add_foreign_key "tasks", "users"
+  add_foreign_key "try_actions", "kpt_boards"
+  add_foreign_key "try_actions", "problem_actions"
 end

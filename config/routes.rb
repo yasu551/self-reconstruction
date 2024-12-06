@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :keep_actions
+  resources :try_actions
+  resources :problem_actions
+  resources :kpt_boards
   resources :daily_reports do
     scope module: :daily_reports do
       resources :keep_and_problem_drafts, only: %i[create]
