@@ -1,0 +1,9 @@
+<div class="vstack gap-3">
+  <%= render 'application/title', title: 'タスク一覧' %>
+  <div>
+    <%= link_to '追加', new_task_path, class: 'btn btn-primary' %>
+  </div>
+  <%= turbo_frame_tag :tasks, class: 'vstack gap-2' do %>
+    <%= render partial: 'task', collection: @tasks %>
+  <% end %>
+</div>

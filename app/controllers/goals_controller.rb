@@ -48,7 +48,7 @@ class GoalsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_goal
-      @goal = Goal.find(params.expect(:id))
+      @goal = current_user.goals.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.

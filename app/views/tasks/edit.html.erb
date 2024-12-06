@@ -1,0 +1,7 @@
+<div class="vstack gap-3">
+  <%= render 'application/title', title: 'タスク編集' %>
+  <%= render "form", task: @task %>
+  <div>
+    <%= link_to '一覧へ', tasks_path, class: 'btn btn-secondary' %>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_06_002352) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_06_015757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,6 +22,20 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_06_002352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.text "completion_condition", default: "", null: false
+    t.text "content", default: "", null: false
+    t.text "yesterday_content", default: "", null: false
+    t.text "memo", default: "", null: false
+    t.string "status", default: "pending", null: false
+    t.date "deadline_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +52,5 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_06_002352) do
   end
 
   add_foreign_key "goals", "users"
+  add_foreign_key "tasks", "users"
 end

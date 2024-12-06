@@ -1,11 +1,10 @@
-
 <%= simple_form_for(@goal) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
     <%= f.input :content %>
-    <%= f.input :memo %>
+    <%= f.input :memo, input_html: { data: { controller: "textarea-autogrow" } }  %>
     <% if @goal.persisted? %>
       <%= f.input :enabled %>
     <% end %>

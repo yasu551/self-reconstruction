@@ -3,6 +3,7 @@ ja:
     models:
       goal: 目標
       user: ユーザー  #g
+      task: タスク  #g
 
     attributes:
       goal:
@@ -19,8 +20,28 @@ ja:
         remember_created_at: ログイン記憶時刻  #g
         reset_password_sent_at: パスワードリセット送信時刻  #g
         reset_password_token: パスワードリセット用トークン  #g
+        tasks: タスク  #g
+
+      task:
+        content: やること  #g
+        deadline_on: 締切日  #g
+        memo: メモ  #g
+        name: 名前  #g
+        status: ステータス
+        user: :activerecord.models.user  #g
+        yesterday_content: 昨日までにやったこと  #g
+        completion_condition: 完了条件
 
   controllers:
     created: 新規登録しました #g
     destroyed: 削除しました #g
     updated: 更新しました #g
+
+  enumerize:
+    task:
+      status:
+        pending: 未着手
+        in_progress: 進行中
+        completed: 完了
+
+  completion_condition: 完了条件  #g
