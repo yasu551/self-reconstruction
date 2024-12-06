@@ -24,7 +24,7 @@ class GoalsController < ApplicationController
     @goal = current_user.goals.build(goal_params)
 
     if @goal.save
-      redirect_to @goal, notice: "Goal was successfully created."
+      redirect_to goals_path, notice: t('controllers.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class GoalsController < ApplicationController
   # PATCH/PUT /goals/1
   def update
     if @goal.update(goal_params)
-      redirect_to @goal, notice: "Goal was successfully updated.", status: :see_other
+      redirect_to goals_path, notice: t("controllers.updated")
     else
       render :edit, status: :unprocessable_entity
     end

@@ -1,0 +1,7 @@
+<div class="vstack gap-3">
+  <%= render 'application/title', title: '目標追加' %>
+  <%= render "form", goal: @goal %>
+  <div>
+    <%= link_to '一覧へ', goals_path, class: 'btn btn-secondary' %>
+  </div>
+</div>

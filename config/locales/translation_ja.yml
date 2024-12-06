@@ -1,12 +1,12 @@
 ja:
   activerecord:
     models:
-      goal: ゴール  #g
+      goal: 目標
       user: ユーザー  #g
 
     attributes:
       goal:
-        content: コンテンツ  #g
+        content: 内容
         enabled: 有効  #g
         memo: メモ  #g
         user: :activerecord.models.user  #g
@@ -19,3 +19,8 @@ ja:
         remember_created_at: ログイン記憶時刻  #g
         reset_password_sent_at: パスワードリセット送信時刻  #g
         reset_password_token: パスワードリセット用トークン  #g
+
+  controllers:
+    created: 新規登録しました #g
+    destroyed: 削除しました #g
+    updated: 更新しました #g

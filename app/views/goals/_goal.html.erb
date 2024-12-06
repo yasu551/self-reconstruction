@@ -1,5 +1,5 @@
 <%= turbo_frame_tag goal do %>
-  <%= link_to edit_goal_path(goal), class: 'btn btn-link d-block text-decoration-none text-start' do %>
+  <%= link_to edit_goal_path(goal), data: { turbo_frame: :_top }, class: 'btn btn-link d-block text-decoration-none text-start px-0' do %>
     <div class="card">
       <div class="card-body">
         <p class="card-text">
