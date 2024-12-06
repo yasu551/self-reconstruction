@@ -21,6 +21,11 @@ class DailyReportsController < ApplicationController
 
   # POST /daily_reports
   def create
+    if params[:create_from_tasks]
+      CreateDailyReportFromTasksJob.perform_later(user_id: current_user.id)
+      return
+    end
+
     @daily_report = current_user.daily_reports.build(daily_report_params)
 
     if @daily_report.save

@@ -1,7 +1,11 @@
+<%= turbo_stream_from [current_user, 'daily_reports'] %>
+
+
 <div class="vstack gap-3">
   <%= render 'application/title', title: '日報一覧' %>
-  <div>
+  <div class="hstack gap-2">
     <%= link_to '追加', new_daily_report_path, class: 'btn btn-primary' %>
+    <%= button_to '今日の日報をAIを使って追加する', daily_reports_path, params: { create_from_tasks: true }, class: 'btn btn-primary' %>
   </div>
   <%= turbo_frame_tag :daily_reports, class: 'vstack gap-2' do %>
     <%= render partial: 'daily_report', collection: @daily_reports %>
