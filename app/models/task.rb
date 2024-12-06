@@ -7,5 +7,5 @@ class Task < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :default_order, -> { order(id: :desc) }
+  scope :default_order, -> { order(Arel.sql("deadline_on DESC NULLS LAST, id DESC")) }
 end
