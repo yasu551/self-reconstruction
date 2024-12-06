@@ -25,5 +25,8 @@
 
   <body>
     <%= yield %>
+    <% if Rails.env.local? %>
+      <%= render "layouts/rails_template_inspector" %>
+    <% end %>
   </body>
 </html>
