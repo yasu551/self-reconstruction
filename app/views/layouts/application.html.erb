@@ -24,7 +24,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/navbar" %>
+    <main class="container my-5">
+      <%= yield %>
+    </main>
     <% if Rails.env.local? %>
       <%= render "layouts/rails_template_inspector" %>
     <% end %>

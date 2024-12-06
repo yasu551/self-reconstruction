@@ -1,16 +1,5 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'application/title', title: '目標一覧' %>
 
-<% content_for :title, "Goals" %>
-
-<h1>Goals</h1>
-
-<div id="goals">
-  <% @goals.each do |goal| %>
-    <%= render goal %>
-    <p>
-      <%= link_to "Show this goal", goal %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New goal", new_goal_path %>
+<%= turbo_frame_tag :goals, class: 'v-stack' do %>
+  <%= render partial: 'goal', collection: @goals %>
+<% end %>

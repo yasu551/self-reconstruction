@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
 
   # GET /goals
   def index
-    @goals = Goal.all
+    @goals = current_user.goals.default_order
   end
 
   # GET /goals/1
@@ -12,7 +12,7 @@ class GoalsController < ApplicationController
 
   # GET /goals/new
   def new
-    @goal = Goal.new
+    @goal = current_user.goals.build
   end
 
   # GET /goals/1/edit
@@ -21,7 +21,7 @@ class GoalsController < ApplicationController
 
   # POST /goals
   def create
-    @goal = Goal.new(goal_params)
+    @goal = current_user.goals.build(goal_params)
 
     if @goal.save
       redirect_to @goal, notice: "Goal was successfully created."
@@ -53,6 +53,6 @@ class GoalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def goal_params
-      params.expect(goal: [ :user_id, :content, :memo, :enabled ])
+      params.expect(goal: [ :content, :memo, :enabled ])
     end
 end
