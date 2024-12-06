@@ -1,0 +1,2 @@
+module DailyReports::KeepAndProblemDraftsHelper
+end

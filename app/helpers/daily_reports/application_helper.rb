@@ -1,0 +1,2 @@
+module DailyReports::ApplicationHelper
+end

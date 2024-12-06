@@ -1,6 +1,10 @@
+<%= turbo_stream_from [current_user, @daily_report] %>
+
 <div class="vstack gap-3">
   <%= render 'application/title', title: '日報編集' %>
-  <%= render "form", daily_report: @daily_report %>
+  <%= turbo_frame_tag @daily_report do %>
+    <%= render "form", daily_report: @daily_report %>
+  <% end %>
   <div>
     <%= link_to '一覧へ', daily_reports_path, class: 'btn btn-secondary' %>
   </div>
