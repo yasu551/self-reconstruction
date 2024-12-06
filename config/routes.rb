@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :daily_reports
   devise_for :users
   resources :goals
   resources :tasks

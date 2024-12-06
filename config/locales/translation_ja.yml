@@ -4,6 +4,7 @@ ja:
       goal: 目標
       user: ユーザー  #g
       task: タスク  #g
+      daily_report: 日報  #g
 
     attributes:
       goal:
@@ -32,6 +33,14 @@ ja:
         yesterday_content: 昨日までにやったこと  #g
         completion_condition: 完了条件
 
+      daily_report:
+        content: 内容
+        keep_action_draft: 良い行動(keep)案
+        problem_action_draft: 悪い行動(problem)案
+        reported_on: 報告日
+        try_action_draft: 改善行動(try)案
+        user: :activerecord.models.user  #g
+
   controllers:
     created: 新規登録しました #g
     destroyed: 削除しました #g
@@ -45,3 +54,4 @@ ja:
         completed: 完了
 
   completion_condition: 完了条件  #g
+  content: コンテンツ  #g

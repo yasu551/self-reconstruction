@@ -1,0 +1,11 @@
+<%= turbo_frame_tag daily_report do %>
+  <%= link_to edit_daily_report_path(daily_report), data: { turbo_frame: :_top }, class: 'btn btn-link d-block text-decoration-none text-start px-0' do %>
+    <div class="card">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <p class="card-text mb-0">
+          <%= l(daily_report.reported_on) %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

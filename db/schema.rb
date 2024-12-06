@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_06_015757) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_06_040853) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "daily_reports", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "reported_on", null: false
+    t.text "content", default: "", null: false
+    t.text "keep_action_draft", default: "", null: false
+    t.text "problem_action_draft", default: "", null: false
+    t.text "try_action_draft", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reported_on"], name: "index_daily_reports_on_reported_on"
+    t.index ["user_id", "reported_on"], name: "index_daily_reports_on_user_id_and_reported_on", unique: true
+  end
 
   create_table "goals", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -51,6 +64,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_06_015757) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "daily_reports", "users"
   add_foreign_key "goals", "users"
   add_foreign_key "tasks", "users"
 end
