@@ -7,8 +7,9 @@
     <%= f.input :content, input_html: { data: { controller: "textarea-autogrow" } }, wrapper_html: { class: 'mb-5' } %>
     <%= link_to 'AIを使って、良い行動、悪い行動を生成する', daily_report_keep_and_problem_drafts_path(daily_report), data: { turbo_method: :post }, class: 'btn btn-secondary mb-3' %>
     <%= turbo_frame_tag :keep_and_problem_draft_inputs do %>
-      <%= render 'keep_and_problem_inputs', f: %>
+      <%= render 'daily_reports/keep_and_problem_inputs', f: %>
     <% end %>
+    <%= link_to 'AIを使って、悪い行動をしなくなる改善行動を生成する', daily_report_try_action_drafts_path(daily_report), data: { turbo_method: :post }, class: 'btn btn-secondary mb-3' %>
     <%= f.input :try_action_draft, input_html: { data: { controller: "textarea-autogrow" } } %>
   </div>
   <div class="form-actions">

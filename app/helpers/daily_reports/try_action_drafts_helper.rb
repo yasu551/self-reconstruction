@@ -1,0 +1,2 @@
+module DailyReports::TryActionDraftsHelper
+end
