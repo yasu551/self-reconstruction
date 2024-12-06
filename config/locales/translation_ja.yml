@@ -5,6 +5,10 @@ ja:
       user: ユーザー  #g
       task: タスク  #g
       daily_report: 日報  #g
+      keep_action: 行動を続ける  #g
+      kpt_board: KPTボード  #g
+      problem_action: 問題のアクション  #g
+      try_action: アクションを試す  #g
 
     attributes:
       goal:
@@ -22,6 +26,8 @@ ja:
         reset_password_sent_at: パスワードリセット送信時刻  #g
         reset_password_token: パスワードリセット用トークン  #g
         tasks: タスク  #g
+        daily_reports: 日報  #g
+        kpt_boards: KPT ボード  #g
 
       task:
         content: やること  #g
@@ -32,6 +38,7 @@ ja:
         user: :activerecord.models.user  #g
         yesterday_content: 昨日までにやったこと  #g
         completion_condition: 完了条件
+        content_diff: コンテンツの差分  #g
 
       daily_report:
         content: 内容
@@ -40,6 +47,33 @@ ja:
         reported_on: 報告日
         try_action_draft: 改善行動(try)案
         user: :activerecord.models.user  #g
+
+      keep_action:
+        enabled: 有効  #g
+        kpt_board: :activerecord.models.kpt_board  #g
+        memo: メモ  #g
+        try_action: :activerecord.models.try_action  #g
+
+      kpt_board:
+        keep_action_draft: Keep  #g
+        keep_actions: アクションを維持する  #g
+        problem_action_draft: Problem  #g
+        problem_actions: 問題のあるアクション  #g
+        start_on: 開始日
+        end_on: 終了日
+        try_action_draft: Try  #g
+        try_actions: アクションを試す  #g
+        user: :activerecord.models.user  #g
+
+      problem_action:
+        kpt_board: :activerecord.models.kpt_board  #g
+        memo: メモ  #g
+
+      try_action:
+        enabled: 有効  #g
+        kpt_board: :activerecord.models.kpt_board  #g
+        memo: メモ  #g
+        problem_action: :activerecord.models.problem_action  #g
 
   controllers:
     created: 新規登録しました #g
@@ -55,3 +89,4 @@ ja:
 
   completion_condition: 完了条件  #g
   content: コンテンツ  #g
+  end_on: 終了日  #g

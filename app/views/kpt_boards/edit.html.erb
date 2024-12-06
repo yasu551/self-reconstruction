@@ -1,0 +1,7 @@
+<div class="vstack gap-3">
+  <%= render 'application/title', title: 'KPTボード編集' %>
+  <%= render "form", kpt_board: @kpt_board %>
+  <div>
+    <%= link_to '一覧へ', kpt_boards_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
